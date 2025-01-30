@@ -19,7 +19,7 @@ public class Main implements Spec{
 
         Player newPlayer = makePerson("John");
         newPlayer.getName();
-        newPlayer.climb("Right Up", 9, '&');
+        newPlayer.climb("Right Up", 9, '#');
         //newPlayer.climb();
     }
         

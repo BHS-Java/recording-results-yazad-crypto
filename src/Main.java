@@ -16,6 +16,11 @@ public class Main implements Spec{
         this.height = s.nextInt();
         System.out.println("What is the player's age");
         this.age = s.nextInt();
+
+        Player newPlayer = makePerson("John");
+        newPlayer.getName();
+        newPlayer.climb("Right Up", 9, '&');
+        //newPlayer.climb();
     }
         
     //METHODS
@@ -44,7 +49,7 @@ public class Main implements Spec{
     }
 
     @Override
-    public Person makePerson(String name){
+    public Player makePerson(String name){
         Player newGuy = new Player(this.theResults, this.name, this.height, this.age);
         newGuy.setName(name);
         return newGuy;

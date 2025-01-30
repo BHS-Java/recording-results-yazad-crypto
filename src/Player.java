@@ -15,6 +15,62 @@ public class Player implements Person{
     }
 
     //METHODS
+
+    public void climb(String whichStair, int lengthOfStair, char brick){
+        //String theStair = "*****";
+        //String theEmpty = "     ";
+
+        
+        if(whichStair.equals("Right Down")){
+            for(int i = 0; i < lengthOfStair; i++) { 
+                for (int o = 0; o <= i; o++) {
+                    System.out.print(brick);
+                }
+                System.out.println();
+            }
+
+        }
+
+        if (whichStair.equals("Left Down")) {
+            for (int i = 1; i <= lengthOfStair; i++) {
+                for (int j = lengthOfStair; j > i; j--) {
+                    System.out.print(" ");
+                }
+                for (int o = 0; o < i; o++) {
+                    System.out.print(brick);
+                }
+                System.out.println();
+            }
+        }
+
+        if (whichStair.equals("Left Up")) {
+            for (int i = lengthOfStair; i > 0; i--) {
+                // Print leading spaces
+                for (int o = 0; o < lengthOfStair - i; o++) {
+                    System.out.print(" ");
+                }
+                // Print asterisks
+                for (int o = 0; o < i; o++) {
+                    System.out.print(brick);
+                }
+                System.out.println();
+            }
+        }
+
+        if (whichStair.equals("Right Up")) {
+            for (int i = lengthOfStair; i > 0; i--) {
+                for (int o = 0; o < lengthOfStair - i; o++) {
+                    System.out.print(" ");
+                }
+                for (int o = 0; o < i; o++) {
+                    System.out.print(brick);
+                }
+                System.out.println();
+            }
+        }
+
+    }
+
     @Override
     public void setName(String settingName){
         this.name = settingName;

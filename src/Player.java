@@ -21,7 +21,7 @@ public class Player implements Person{
         //String theEmpty = "     ";
 
         
-        if(whichStair.equals("Right Down")){
+        if(whichStair.equals("RD")){
             for(int i = 0; i < lengthOfStair; i++) { 
                 for (int o = 0; o <= i; o++) {
                     System.out.print(brick);
@@ -31,7 +31,7 @@ public class Player implements Person{
 
         }
 
-        if (whichStair.equals("Left Down")) {
+        if (whichStair.equals("LD")) {
             for (int i = 1; i <= lengthOfStair; i++) {
                 for (int j = lengthOfStair; j > i; j--) {
                     System.out.print(" ");
@@ -43,7 +43,7 @@ public class Player implements Person{
             }
         }
 
-        if (whichStair.equals("Left Up")) {
+        if (whichStair.equals("LU")) {
             for (int i = lengthOfStair; i > 0; i--) {
                 // Print leading spaces
                 for (int o = 0; o < lengthOfStair - i; o++) {
@@ -57,7 +57,7 @@ public class Player implements Person{
             }
         }
 
-        if (whichStair.equals("Right Up")) {
+        if (whichStair.equals("RU")) {
             for (int i = lengthOfStair; i > 0; i--) {
                 for (int o = 0; o < lengthOfStair - i; o++) {
                     System.out.print(" ");

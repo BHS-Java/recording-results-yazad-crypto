@@ -6,10 +6,16 @@ public class Main implements Spec{
     String name;
     int height;
     int age;
+    String symbol;
+    String stairType;
 
     
     public void main(String[] args) {
         Scanner s = new Scanner(System.in);
+        System.out.println("give me a char");
+        this.symbol = s.nextLine();
+        System.out.println("Choose a stair type (LU/LD/RU/RD)");
+        this.stairType = s.nextLine();
         System.out.println("What is the player's name");
         this.name = s.nextLine();
         System.out.println("What is the player's height");
@@ -17,9 +23,14 @@ public class Main implements Spec{
         System.out.println("What is the player's age");
         this.age = s.nextInt();
 
+        //char symbolChar = symbol.charAt(1);
+
+
+
         Player newPlayer = makePerson("John");
         newPlayer.getName();
-        newPlayer.climb("Right Up", 9, '#');
+        System.out.println("give me a length for the stairs");
+        newPlayer.climb(stairType, s.nextInt(), symbol.charAt(0));
         //newPlayer.climb();
     }
         

@@ -4,15 +4,25 @@ public class Player implements Person{
     String name;
     int height;
     int age;
-    Results results;
+    //Results results;
 
     //CONSTRUCTORS
     public Player(Results results, String name, int height, int age){
-        this.results = results;
+        //this.results = results;
         this.name = name;
         this.height = height;
         this.age = age;
     }
+
+    public Player(String[] list){
+        this.name = list[0];
+        this.height = Integer.parseInt(list[1]);
+        this.age = Integer.parseInt(list[2]);
+
+        //this.ties = Integer.parseInt(list[3]);
+        //this.games = Integer.parseInt(list[4]);
+        //this.sym = list[5].charAt(0);
+      }
 
     //METHODS
 
@@ -91,8 +101,8 @@ public class Player implements Person{
         return this.age;
     };
 
-    @Override
-    public Results getResults(){
-        return this.results;
-    }; 
+    //@Override
+    //public Results getResults(){
+    //    return this.results;
+    //}; 
 }

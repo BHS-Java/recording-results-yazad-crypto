@@ -30,7 +30,7 @@
  
    //METHODS
    
-   public Player findPlayer(String name){
+   public Player loadPlayer(String name){
      Player p;
      for(int i = 0; i < this.players.size(); i++){
        p = players.get(i);
@@ -52,22 +52,11 @@
        fw.write(
          playerList[i].getName() + "," + 
          playerList[i].getHeight() + "," + 
-         playerList[i].getAge() + ","
+         playerList[i].getAge()
        );
      }
      fw.close();
-   }
- 
-   public Player addPlayer(String name){
-     String[] idk = {name, "0", "0",};
-     Player defaultPlayer = new Player(idk);
-     if(findPlayer(name) == null){
-       return defaultPlayer;
-     }
-     else{
-       return findPlayer(name);
-     }
-   }
+    }
    
    public ArrayList<Player> getArray(){
      return this.players;

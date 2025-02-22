@@ -27,9 +27,10 @@ public class Main implements Spec{
         System.out.println("What is the player's age");
         this.age = s.nextInt();
 
-        Player p1 = playerManager.findPlayer("Aryan");
-        Player p2 = playerManager.addPlayer("Tapush");
+        Player p1 = playerManager.loadPlayer("Aryan");
+        Player p2 = playerManager.loadPlayer("Yazad");
         p1.setAge(10);
+        p2.setHeight(20);
         Player[] playerList = {p1, p2};
         playerManager.saveData(playerList);
         //char symbolChar = symbol.charAt(1);

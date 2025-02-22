@@ -106,6 +106,10 @@ public class Player implements Person{
         this.age = newAge;
     }
 
+    public void setHeight(int newHeight){
+        this.height = newHeight;
+    }
+
     @Override
     public Results getResults(){
         return this.results;

@@ -13,7 +13,7 @@ public class Main implements Spec{
 
     
     public void main(String[] args) throws FileNotFoundException, IOException{
-        PlayerManager playerManager = new PlayerManager();
+        Game coolGame = new Game();
         
         Scanner s = new Scanner(System.in);
         System.out.println("give me a char");
@@ -27,12 +27,14 @@ public class Main implements Spec{
         System.out.println("What is the player's age");
         this.age = s.nextInt();
 
-        Player p1 = playerManager.loadPlayer("Aryan");
-        Player p2 = playerManager.loadPlayer("Yazad");
-        p1.setAge(10);
-        p2.setHeight(20);
-        Player[] playerList = {p1, p2};
-        playerManager.saveData(playerList);
+
+        Player p1 = coolGame.selectPlayer("Yazad");
+        Player p2 = coolGame.selectPlayer("Neel");
+        Player p3 = coolGame.selectPlayer("Aryan");
+        p1.setAge(89);
+        p2.setAge(20);
+        p3.setHeight(12);
+
         //char symbolChar = symbol.charAt(1);
 
 

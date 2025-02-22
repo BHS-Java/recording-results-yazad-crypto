@@ -1,44 +1,47 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game {
-    //PROPERTIES
-    private Player[] playerList;
-    private ImpResults results;
-    private ArrayList<Player> vibhu;
-
-    //CONTRUCTORS
-    public Game(Player[] thePlaer){
-        this.playerList = thePlaer;
-        this.results = new ImpResults();
-    }
-
-
-    //METHODS
-    public void addPlayer(Player newPlayer){
-        Player[] newList = new Player[playerList.length + 1];
-        newList[newList.length-1] = newPlayer;
-        this.playerList = newList;
-    }
-
-    public ImpResults getResults(){
-        return results;
-    }
-
-    public void loadPlayers() throws FileNotFoundException{
-        File f = new File("skibuddy.csv");
-        this.vibhu = new ArrayList<Player>();
-        Scanner u = new Scanner(f);
-
-        u.nextLine();
-        while (u.hasNextLine()){
-          String[] data = u.nextLine().split(",");
-          Player yay = new Player(data);
-          vibhu.add(yay);
-        }
+    private ArrayList<Player> players;
     
-        u.close();
+    public Game() {
+        this.players = new ArrayList<>();
+    }
+
+    public void loadPlayers(String filename) throws FileNotFoundException{
+        File file = new File("playerData.csv");
+        Scanner scanner = new Scanner(file);
+        if (scanner.hasNextLine()) {
+            scanner.nextLine();
+        }
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
+            String[] data = line.split(",");
+            String name = data[0];
+            int height = Integer.parseInt(data[1]);
+            int age = Integer.parseInt(data[2]);
+            players.add(new Player(name, height, age));
+        }
+        scanner.close();
+    }
+    
+    // Method to select a player by name
+    public Player selectPlayer(String playerName) {
+        for (int i = 0; i < players.size(); i++) {
+            if (players.get(i).getName().equalsIgnoreCase(playerName)) {
+                System.out.println(playerName + " selected.");
+                return players.get(i);
+            }
+        }
+        System.out.println("Player not found.");
+        return null;
+    }
+    
+    public ArrayList<Player> getPlayers() {
+        return players;
     }
 }

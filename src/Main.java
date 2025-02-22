@@ -1,3 +1,5 @@
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main implements Spec{
@@ -10,7 +12,9 @@ public class Main implements Spec{
     String stairType;
 
     
-    public void main(String[] args) {
+    public void main(String[] args) throws FileNotFoundException, IOException{
+        PlayerManager playerManager = new PlayerManager();
+        
         Scanner s = new Scanner(System.in);
         System.out.println("give me a char");
         this.symbol = s.nextLine();
@@ -23,6 +27,11 @@ public class Main implements Spec{
         System.out.println("What is the player's age");
         this.age = s.nextInt();
 
+        Player p1 = playerManager.findPlayer("Aryan");
+        Player p2 = playerManager.addPlayer("Tapush");
+        p1.setAge(10);
+        Player[] playerList = {p1, p2};
+        playerManager.saveData(playerList);
         //char symbolChar = symbol.charAt(1);
 
 
@@ -32,6 +41,9 @@ public class Main implements Spec{
         System.out.println("give me a length for the stairs");
         newPlayer.climb(stairType, s.nextInt(), symbol.charAt(0));
         //newPlayer.climb();
+        s.close();
+
+
     }
         
     //METHODS
@@ -61,7 +73,7 @@ public class Main implements Spec{
 
     @Override
     public Player makePerson(String name){
-        Player newGuy = new Player(this.theResults, this.name, this.height, this.age);
+        Player newGuy = new Player(this.name, this.height, this.age);
         newGuy.setName(name);
         return newGuy;
     }

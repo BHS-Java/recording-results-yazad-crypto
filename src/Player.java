@@ -4,14 +4,15 @@ public class Player implements Person{
     String name;
     int height;
     int age;
-    //Results results;
+    Results results;
 
     //CONSTRUCTORS
-    public Player(Results results, String name, int height, int age){
+    public Player(String name, int height, int age){
         //this.results = results;
         this.name = name;
         this.height = height;
         this.age = age;
+        System.out.println("Created " + name + ". Their height is " + height + ", and their age is " + age);
     }
 
     public Player(String[] list){
@@ -101,8 +102,12 @@ public class Player implements Person{
         return this.age;
     };
 
-    //@Override
-    //public Results getResults(){
-    //    return this.results;
-    //}; 
+    public void setAge(int newAge){
+        this.age = newAge;
+    }
+
+    @Override
+    public Results getResults(){
+        return this.results;
+    }; 
 }
